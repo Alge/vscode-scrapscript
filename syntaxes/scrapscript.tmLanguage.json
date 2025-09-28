@@ -1,0 +1,147 @@
+{
+    "name": "ScrapScript",
+    "scopeName": "source.scrapscript",
+    "patterns": [
+        {
+            "include": "#comments"
+        },
+        {
+            "include": "#strings"
+        },
+        {
+            "include": "#numbers"
+        },
+        {
+            "include": "#base64"
+        },
+        {
+            "include": "#hexbyte"
+        },
+        {
+            "include": "#variants"
+        },
+        {
+            "include": "#operators"
+        },
+        {
+            "include": "#keywords"
+        },
+        {
+            "include": "#identifiers"
+        }
+    ],
+    "repository": {
+        "comments": {
+            "name": "comment.line.double-dash.scrapscript",
+            "match": "--.*$"
+        },
+        "strings": {
+            "patterns": [
+                {
+                    "name": "string.quoted.double.interpolated.scrapscript",
+                    "match": "\"[^\"]*`[^`]*`[^\"]*\""
+                },
+                {
+                    "name": "string.quoted.double.scrapscript",
+                    "match": "\"[^\"]*\""
+                }
+            ]
+        },
+        "numbers": {
+            "patterns": [
+                {
+                    "name": "constant.numeric.float.scrapscript",
+                    "match": "\\b\\d+\\.\\d+\\b"
+                },
+                {
+                    "name": "constant.numeric.integer.scrapscript",
+                    "match": "\\b\\d+\\b"
+                }
+            ]
+        },
+        "base64": {
+            "name": "constant.other.base64.scrapscript",
+            "match": "~~[A-Za-z0-9+/]*={0,2}"
+        },
+        "hexbyte": {
+            "name": "constant.other.hexbyte.scrapscript",
+            "match": "~[0-9a-fA-F]{1,2}"
+        },
+        "variants": {
+            "name": "constant.other.variant.scrapscript",
+            "match": "#[a-zA-Z][a-zA-Z0-9_-]*"
+        },
+        "operators": {
+            "patterns": [
+                {
+                    "name": "keyword.operator.arrow.scrapscript",
+                    "match": "->"
+                },
+                {
+                    "name": "keyword.operator.double-arrow.scrapscript",
+                    "match": "=>"
+                },
+                {
+                    "name": "keyword.operator.double-colon.scrapscript",
+                    "match": "::"
+                },
+                {
+                    "name": "keyword.operator.append.scrapscript",
+                    "match": "\\+\\+"
+                },
+                {
+                    "name": "keyword.operator.cons.scrapscript",
+                    "match": ">\\+"
+                },
+                {
+                    "name": "keyword.operator.pipe-forward.scrapscript",
+                    "match": ">>"
+                },
+                {
+                    "name": "keyword.operator.pipe.scrapscript",
+                    "match": "\\|>"
+                },
+                {
+                    "name": "keyword.operator.spread.scrapscript",
+                    "match": "\\.\\."
+                },
+                {
+                    "name": "keyword.operator.rock.scrapscript",
+                    "match": "\\$\\$"
+                },
+                {
+                    "name": "keyword.operator.assignment.scrapscript",
+                    "match": "="
+                },
+                {
+                    "name": "keyword.operator.arithmetic.scrapscript",
+                    "match": "[+\\-*/]"
+                },
+                {
+                    "name": "keyword.operator.comparison.scrapscript",
+                    "match": "[<>]"
+                }
+            ]
+        },
+        "keywords": {
+            "patterns": [
+                {
+                    "name": "keyword.control.pattern.scrapscript",
+                    "match": "\\|"
+                },
+                {
+                    "name": "keyword.control.where.scrapscript",
+                    "match": ";"
+                },
+                {
+                    "name": "keyword.control.type.scrapscript",
+                    "match": ":"
+                }
+            ]
+        },
+        "identifiers": {
+            "name": "variable.other.identifier.scrapscript",
+            "match": "[a-zA-Z_][a-zA-Z0-9_-]*(?:/[a-zA-Z0-9_][a-zA-Z0-9_-]*)*"
+        }
+    }
+}
