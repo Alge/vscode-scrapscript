@@ -3,11 +3,21 @@
     "displayName": "ScrapScript",
     "description": "Syntax highlighting for ScrapScript (.scrap) files",
     "version": "0.1.0",
+    "publisher": "Alge",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Alge/vscode-scrapscript.git"
+    },
     "engines": {
         "vscode": "^1.74.0"
     },
     "categories": [
         "Programming Languages"
+    ],
+    "keywords": [
+        "scrapscript",
+        "syntax",
+        "highlighting"
     ],
     "contributes": {
         "languages": [
