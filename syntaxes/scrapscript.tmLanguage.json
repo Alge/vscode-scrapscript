@@ -39,11 +39,59 @@
             "patterns": [
                 {
                     "name": "string.quoted.double.interpolated.scrapscript",
-                    "match": "\"[^\"]*`[^`]*`[^\"]*\""
+                    "begin": "\"(?=.*`.*`.*\")",
+                    "end": "\"",
+                    "patterns": [
+                        {
+                            "name": "constant.character.escape.scrapscript",
+                            "match": "\\\\."
+                        },
+                        {
+                            "name": "meta.interpolation.scrapscript",
+                            "begin": "`",
+                            "end": "`",
+                            "beginCaptures": {
+                                "0": {
+                                    "name": "punctuation.definition.interpolation.begin.scrapscript"
+                                }
+                            },
+                            "endCaptures": {
+                                "0": {
+                                    "name": "punctuation.definition.interpolation.end.scrapscript"
+                                }
+                            },
+                            "patterns": [
+                                {
+                                    "name": "string.quoted.double.scrapscript",
+                                    "match": "\"[^\"]*\""
+                                },
+                                {
+                                    "include": "#numbers"
+                                },
+                                {
+                                    "include": "#variants"
+                                },
+                                {
+                                    "include": "#identifiers"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "string.quoted.double.interpolated.content.scrapscript",
+                            "match": "[^`\"\\\\]+"
+                        }
+                    ]
                 },
                 {
                     "name": "string.quoted.double.scrapscript",
-                    "match": "\"[^\"]*\""
+                    "begin": "\"",
+                    "end": "\"",
+                    "patterns": [
+                        {
+                            "name": "constant.character.escape.scrapscript",
+                            "match": "\\\\."
+                        }
+                    ]
                 }
             ]
         },
@@ -68,7 +116,7 @@
             "match": "~[0-9a-fA-F]{1,2}"
         },
         "variants": {
-            "name": "constant.other.variant.scrapscript",
+            "name": "support.type.scrapscript",
             "match": "#[a-zA-Z][a-zA-Z0-9_-]*"
         },
         "operators": {
